@@ -36,6 +36,8 @@ section{padding-block:30px}
 .bar{display:flex;justify-content:space-between;align-items:center;padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:6px}
 .logo img{display:block;width:40px;height:40px;object-fit:contain}
 .bar small{font-size:12px;color:var(--muted)}
+.bar .portfolio-link{font-size:12px;font-weight:700;color:var(--ink);text-decoration:none}
+.bar .portfolio-link:hover{text-decoration:underline}
 /* hero */
 .hero{display:grid;gap:16px;padding-top:14px}
 .hero h1{font-size:clamp(50px,15vw,72px)}
@@ -238,7 +240,7 @@ dialog::backdrop{background:rgba(26,18,8,.6)}
 
 <header class="s30-hero">
   <video class="bg" src="assets/video/bts.mp4" poster="assets/img/p-bts-bw.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
-  <div class="bar col"><div class="logo"><img src="assets/logos/30.png" alt="Studio 30"></div><small>Lima, Perú</small></div>
+  <div class="bar col"><div class="logo"><img src="assets/logos/30.png" alt="Studio 30"></div><a class="portfolio-link" href="joshuacarty/index.html">Joshua Carty ↗</a></div>
   <div class="hero-txt col">
 
     <h1 class="disp">Contenido que <span class="it">mueve marcas.</span></h1>
