@@ -7,6 +7,11 @@ Static portfolio pages for Studio 30 and Joshua Carty, built with HTML, CSS, and
 - `index.html` — Studio 30 agency portfolio and campaign carousel.
 - `joshuacarty/index.html` — Joshua Carty portfolio and campaign gallery.
 
+## Public URLs
+
+- Studio 30: https://ismaelsq.github.io/studio30-portfolio/
+- Joshua Carty: https://ismaelsq.github.io/studio30-portfolio/joshuacarty/
+
 Open either page in a browser, or serve this folder with a local static web server to test the video previews.
 
 ## Public demo notes
