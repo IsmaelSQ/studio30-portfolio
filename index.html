@@ -1,0 +1,372 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Studio 30: campañas, producción audiovisual y embajadores de marca. Lima, Perú.">
+<title>Studio 30</title>
+<link rel="icon" type="image/png" href="assets/logos/30.png">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Archivo:wdth,wght@62..125,700..900&family=Instrument+Serif:ital@1&display=swap">
+<style>
+/* Layout: web para marcas, teléfono primero (columna 480px). Paleta "Sol" de Studio 30 (claro, a propósito un solo tema): hero con campaña real, cifras, banda, servicios, casos en movimiento, proceso, formas de trabajar y botón flotante "Cotiza tu campaña" */
+:root{
+  --bg:#fff8ec; --ink:#1a1208; --muted:#7a6a55; --line:#ecdcc0; --card:#fff1d6;
+  --sun:#ffcf5a; --orange:#e07a00; --sheet:#ffffff; --ok:#2f8f4e;
+  --font:"DM Sans","Helvetica Neue",Arial,sans-serif;
+  --display:"Archivo","Arial Narrow",Impact,sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.45;padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+.col{max-width:480px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0}
+.btn{display:block;width:100%;background:var(--ink);color:var(--sun);font:800 17px var(--font);letter-spacing:.04em;border:0;border-radius:12px;padding:17px 18px;cursor:pointer;text-align:center;text-decoration:none}
+.btn.alt{background:var(--sun);color:var(--ink)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,.x:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.disp{font-family:var(--display);font-stretch:68%;font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:0}
+.it{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;font-stretch:100%;color:var(--orange)}
+.lab{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+section{padding-block:30px}
+/* barra */
+.bar{display:flex;justify-content:space-between;align-items:center;padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:6px}
+.logo img{display:block;width:40px;height:40px;object-fit:contain}
+.bar small{font-size:12px;color:var(--muted)}
+/* hero */
+.hero{display:grid;gap:16px;padding-top:14px}
+.hero h1{font-size:clamp(50px,15vw,72px)}
+.hero h1 .it{display:block;font-size:1.04em;line-height:1}
+.hero .sub{font-size:18px;color:#4b3c28}
+.hero-img{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:#f0dcb4 center 30%/cover no-repeat;background-image:url("assets/img/p-indrive.jpg")}
+.hv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-img .chip{z-index:1;position:absolute;left:12px;bottom:12px;background:var(--sun);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:6px}
+@media (prefers-reduced-motion:no-preference){
+ .hero>*{animation:up .9s cubic-bezier(.2,.8,.2,1) both}
+ .hero>*:nth-child(2){animation-delay:.1s}.hero>*:nth-child(3){animation-delay:.2s}.hero>*:nth-child(4){animation-delay:.3s}
+ @keyframes up{from{transform:translateY(18px);opacity:.25}to{transform:none;opacity:1}}
+}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center;min-width:0}
+.stats b{display:block;font-family:var(--display);font-stretch:75%;font-weight:900;font-size:26px;line-height:1.05;color:var(--orange)}
+.stats span{display:block;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.25;margin-top:3px}
+.s30-hero{position:relative;max-width:480px;margin:0 auto;overflow:hidden}
+.s30-hero .bg{filter:grayscale(1) contrast(1.12) brightness(.95);position:absolute;top:0;left:0;width:100%;aspect-ratio:16/9;height:auto;object-fit:cover;background:#e9d6b0 center/cover}
+.bts-ph{position:absolute;top:0;left:0;width:100%;aspect-ratio:16/9;display:grid;place-content:center;gap:4px;text-align:center;background:repeating-linear-gradient(135deg,#2a2015 0 14px,#33281b 14px 28px);color:var(--sun)}
+.bts-ph b{font-family:var(--display);font-stretch:70%;font-weight:900;font-size:56px;line-height:1;letter-spacing:.04em}
+.bts-ph span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#e8dcc6;padding:0 20px}
+.s30-hero::before{content:"";position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;z-index:1;background:linear-gradient(180deg,rgba(26,18,8,.45) 0%,rgba(26,18,8,0) 28%,rgba(255,248,236,.55) 62%,var(--bg) 100%)}
+.s30-hero .bar{position:relative;z-index:2;color:#fff8ec}
+.s30-hero .bar small{color:#fff8ec;opacity:.85}
+.kick{justify-self:start;background:var(--ink);color:var(--sun);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-radius:999px}
+.hero-txt{position:relative;z-index:2;display:grid;gap:14px;padding-top:calc(min(100vw,480px) * .5625 * .42);padding-bottom:10px}
+.hero-txt h1{font-size:clamp(50px,15vw,72px)}
+.hero-txt h1 .it{display:block;font-size:1.04em;line-height:1}
+@media (prefers-reduced-motion:no-preference){.hero-txt>*{animation:up .9s cubic-bezier(.2,.8,.2,1) both}.hero-txt>*:nth-child(2){animation-delay:.1s}.hero-txt>*:nth-child(3){animation-delay:.2s}}
+/* banda */
+.band{overflow:hidden;background:var(--ink);color:var(--sun);transform:rotate(-2deg);margin:26px auto 14px;padding:10px 0;max-width:520px}
+.band-in{display:flex;gap:18px;width:max-content;align-items:center;animation:run 30s linear infinite}
+.band span{font-family:var(--display);font-stretch:70%;font-weight:900;font-size:30px;text-transform:uppercase;white-space:nowrap}
+@keyframes run{to{transform:translateX(-50%)}}
+/* servicios */
+h2.disp{font-size:clamp(36px,10vw,48px);margin-bottom:16px}
+.svc{display:grid;gap:10px}
+.svc article{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:6px}
+.svc .n{font-family:var(--display);font-stretch:75%;font-weight:900;font-size:14px;color:var(--orange)}
+.svc h3{font-size:20px}
+.svc p{font-size:15px;color:#5b4b35}
+.svc ul{margin:4px 0 0;padding-left:18px;font-size:14px;color:#5b4b35}
+/* casos */
+.reel{overflow:hidden;margin:6px -20px 12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:10px;width:max-content;animation:run 34s linear infinite}
+.reel:hover .track,.reel:focus-within .track{animation-play-state:paused}
+.tile{position:relative;flex:none;width:170px;height:230px;border:0;padding:0;border-radius:14px;overflow:hidden;cursor:zoom-in;background:#f0dcb4 center 25%/cover no-repeat}
+.tile .cap{position:absolute;left:8px;bottom:8px;background:#fff;color:var(--ink);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 7px;border-radius:4px}
+.brands{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.brands span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.brands b{font-family:var(--display);font-stretch:75%;font-weight:900;text-transform:uppercase;font-size:15px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+.hint{font-size:12px;color:var(--muted);margin-bottom:12px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.pf{position:relative;border:0;padding:0;border-radius:14px;overflow:hidden;aspect-ratio:9/14;cursor:pointer;background:#f0dcb4 center 25%/cover no-repeat;text-align:left}
+.pf::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,18,8,0) 50%,rgba(26,18,8,.75) 100%)}
+.pf .pl{position:absolute;top:10px;right:10px;z-index:1;width:34px;height:34px;border-radius:50%;background:var(--sun);color:var(--ink);display:grid;place-items:center;font-size:13px}
+.pf .pt{position:absolute;left:10px;right:10px;bottom:10px;z-index:1;color:#fff8ec;font-size:12px;line-height:1.2}
+.pf .pt b{display:block;font-family:var(--display);font-stretch:75%;font-weight:900;text-transform:uppercase;font-size:20px}
+.im-indrive{background-image:url("assets/img/p-indrive.jpg")}.im-yape{background-image:url("assets/img/p-yape.jpg")}.im-chinawok{background-image:url("assets/img/p-chinawok.jpg")}.im-lemon2{background-image:url("assets/img/p-lemon2.jpg")}.im-hs{background-image:url("assets/img/p-hs.jpg")}.im-samsung{background-image:url("assets/img/p-samsung.jpg")}.im-newera{background-image:url("assets/img/p-newera.jpg")}
+.talents{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tal{margin:0;display:grid;gap:8px;min-width:0}
+.tal .ph{aspect-ratio:3/4;border-radius:14px;background:#f0dcb4 center 25%/cover no-repeat}
+
+.tal b{display:block;font-family:var(--display);font-stretch:75%;font-weight:900;text-transform:uppercase;font-size:20px}
+.tal span{font-size:13px;color:#5b4b35}
+.tal a{color:var(--orange);font-weight:800}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.flow span{font-family:var(--display);font-stretch:75%;font-weight:900;text-transform:uppercase;font-size:18px;background:var(--card);border-radius:999px;padding:6px 12px}
+.flow i{font-style:normal;color:var(--orange);font-weight:800}
+#lb-video-frame{width:100%;aspect-ratio:9/16;overflow:hidden;background:#000}
+#lb video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+.deck{position:relative;width:78%;max-width:340px;aspect-ratio:9/14;margin:10px auto 6px;touch-action:pan-y;user-select:none}
+.card{position:absolute;inset:0;border:0;padding:0;border-radius:20px;overflow:hidden;cursor:pointer;text-align:left;background:#f0dcb4 center 25%/cover no-repeat;box-shadow:0 18px 40px rgba(26,18,8,.28);transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .8s ease,filter .8s ease;will-change:transform}
+.card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease}
+.card.p0 video{opacity:1}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,18,8,0) 55%,rgba(26,18,8,.75) 100%)}
+.card .pt{position:absolute;left:14px;right:14px;bottom:14px;z-index:1;color:#fff8ec;font-size:13px;line-height:1.2}
+.card .pt b{display:block;font-family:var(--display);font-stretch:75%;font-weight:900;text-transform:uppercase;font-size:28px}
+.card .pl{position:absolute;top:12px;right:12px;z-index:1;background:var(--sun);color:var(--ink);font-size:11px;font-weight:800;letter-spacing:.06em;padding:6px 10px;border-radius:999px;opacity:0;transition:opacity .4s}
+.card.p0 .pl{opacity:1}
+.card.p0{transform:none;z-index:4}
+.card.p1{transform:translate(22px,-16px) rotate(4deg) scale(.94);z-index:3;filter:brightness(.85)}
+.card.p2{transform:translate(42px,-30px) rotate(8deg) scale(.88);z-index:2;filter:brightness(.7)}
+.card.p3{transform:translate(58px,-42px) rotate(12deg) scale(.82);z-index:1;filter:brightness(.55);opacity:.9}
+@media (max-width:400px){.card.p3{transform:translate(46px,-42px) rotate(12deg) scale(.82)}}
+.card.out{transform:translate(-130%,30px) rotate(-14deg);opacity:0;z-index:5}
+.dots{display:flex;justify-content:center;gap:6px;margin:10px 0 4px}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--line);transition:background .3s,width .3s}
+.dots i.on{background:var(--orange);width:20px;border-radius:4px}
+.deck-hint{font-size:12px;color:var(--muted);text-align:center}
+@media (prefers-reduced-motion:reduce){.card{transition:none}}
+.lead{font-size:16px;color:#5b4b35;margin:-6px 0 6px}
+.trust{margin-top:22px}
+.trust-row{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.trust-in{display:flex;gap:14px;align-items:center;width:max-content;animation:run 26s linear infinite}
+.trust b{font-family:var(--display);font-stretch:72%;font-weight:900;text-transform:uppercase;font-size:28px;white-space:nowrap;color:var(--ink)}
+.lg{flex:none;width:130px;height:66px;background:#fff;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;padding:10px 14px;overflow:hidden}
+.lg-lemon{padding:10px 8px}
+.lg img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;display:block}
+.lg-yape img{width:44px;height:44px;object-fit:contain}
+.lg.fill{padding:0;background:#0b0b0b}.lg.fill img{width:100%;height:100%;object-fit:contain;max-height:none}
+.lg.txt{font-family:var(--display);font-stretch:72%;font-weight:900;text-transform:uppercase;font-size:24px;color:var(--ink)}
+.trust i{font-style:normal;color:var(--orange);font-size:22px}
+.end{padding-top:10px}
+.end-card{background:var(--ink);color:#fff8ec;border-radius:24px;padding:26px 22px;display:grid;gap:14px;text-align:left}
+.end-card h2{font-size:clamp(36px,10.5vw,50px)}
+.end-card .it{color:var(--sun)}
+.end-card p{color:#e8dcc6;font-size:15px}
+.direct{border-top:1px solid #3a2f20;padding-top:14px;margin-top:4px;display:grid;gap:8px;justify-items:start}
+.direct span{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#c9b48f}
+.direct p{font-size:15px;color:#e8dcc6}
+.direct b{color:#fff8ec;user-select:all}
+.wa-sm{display:inline-block;border:1.5px solid #e8dcc6;color:#fff8ec;text-decoration:none;font-size:14px;font-weight:700;border-radius:999px;padding:8px 14px}
+.contact{font-size:14px;color:#e8dcc6;text-align:center;line-height:1.6}
+.contact b{color:#fff8ec;user-select:all}
+.contact a{color:var(--sun);font-weight:800}
+.wa-link{color:var(--sun);font-weight:800;text-decoration:none;font-size:14px;text-align:center}
+@media (prefers-reduced-motion:reduce){.trust-in{animation:none;flex-wrap:wrap;width:auto}}
+/* proceso */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.steps div{background:var(--card);border-radius:14px;padding:14px 10px;min-width:0}
+.steps b{display:block;font-family:var(--display);font-stretch:75%;font-weight:900;text-transform:uppercase;font-size:18px;margin-bottom:4px}
+.steps p{font-size:13px;color:#5b4b35}
+/* formas de trabajar */
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.plans div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;min-width:0;display:grid;gap:4px}
+.plans b{font-size:16px}
+.plans p{font-size:13px;color:#5b4b35}
+.plans .fav{background:var(--sun);border-color:var(--sun)}
+.plans .fav small{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+/* origen */
+.origin{background:var(--ink);color:#fff8ec;border-radius:22px;padding:22px;display:grid;gap:12px}
+.origin .disp{font-size:34px}
+.origin .it{color:var(--sun)}
+.origin p{color:#e8dcc6;font-size:15px}
+.origin a{color:var(--sun);font-weight:800;text-decoration:none}
+.foot{font-size:12px;color:var(--muted);text-align:center;padding-block:22px}
+/* botón flotante */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:5;background:linear-gradient(180deg,rgba(255,248,236,0),var(--bg) 35%);padding:18px 0 calc(12px + env(safe-area-inset-bottom,0px));transform:translateY(130%);opacity:0;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s ease}
+.sticky.in{transform:none;opacity:1}
+@media (prefers-reduced-motion:reduce){.sticky{transition:none}.track,.band-in{animation:none}.reel{overflow-x:auto}}
+/* hoja del formulario y visor */
+dialog{border:0;padding:0}
+#sheet{margin:auto auto 0;width:100%;max-width:480px;max-height:92%;border-radius:22px 22px 0 0;background:var(--sheet);color:var(--ink)}
+dialog::backdrop{background:rgba(26,18,8,.6)}
+.sheet{padding:22px 20px calc(22px + env(safe-area-inset-bottom,0px));display:grid;gap:12px}
+.sheet .top{display:flex;justify-content:space-between;align-items:start;gap:12px}
+.sheet h2{font-size:23px}
+.sheet .s{font-size:14px;color:#5b4b35}
+.x{background:#f1e6d2;border:0;border-radius:50%;width:34px;height:34px;font-size:18px;cursor:pointer;color:var(--ink);flex:none}
+.sheet label{display:grid;gap:5px;font-size:13px;font-weight:700}
+.sheet input,.sheet select{font:16px var(--font);color:var(--ink);background:#fffaf1;border:1.5px solid var(--line);border-radius:12px;padding:13px 12px;width:100%}
+.tel{display:grid;grid-template-columns:118px minmax(0,1fr);gap:8px}
+.tel select{text-overflow:ellipsis}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sheet small{font-size:12px;color:#b42318}
+.done{display:grid;gap:12px;text-align:center;padding-block:12px}
+.done .x{justify-self:end}
+.done b{font-size:23px;color:var(--ok)}
+.wa{font-size:14px;text-align:center}
+.wa a{color:var(--orange);font-weight:800}
+#lb{width:min(92vw,360px,calc((92dvh - 44px) * 9 / 16));max-height:92dvh;margin:auto;border-radius:16px;background:#000;position:relative;overflow:hidden}
+#lb img{display:block;max-width:100%;max-height:82vh;margin:0 auto}
+#lb .x{position:absolute;top:10px;right:10px}
+#lb p{color:#fff8ec;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px}
+
+/* ===== Responsive: tablet y escritorio ===== */
+@media (min-width:768px){
+  .col{max-width:720px}
+  .s30-hero{max-width:none;min-height:82vh;display:flex;flex-direction:column}
+  .s30-hero .bg,.bts-ph,.s30-hero::before{aspect-ratio:auto;bottom:0;height:100%}
+  .s30-hero::before{background:linear-gradient(180deg,rgba(26,18,8,.5) 0%,rgba(26,18,8,.1) 30%,rgba(255,248,236,.55) 70%,var(--bg) 100%)}
+  .s30-hero .bar{width:100%}
+  .hero-txt{margin-top:auto;padding-top:120px;padding-bottom:40px;width:100%}
+  .hero-txt h1{font-size:clamp(72px,8.5vw,120px)}
+  .hero-txt .stats{max-width:560px}
+  .band{max-width:none;margin:30px -10px 20px}
+  section{padding-block:48px}
+  .deck{max-width:380px}
+  .lg{width:160px;height:80px}
+  .lg-yape img{width:58px;height:58px}
+  .end-card{padding:44px;grid-template-columns:1fr 1fr;align-items:end;column-gap:40px}
+  .end-card .lab,.end-card h2{grid-column:1/-1}
+  .sticky .col{max-width:480px}
+  #sheet{margin:auto;border-radius:22px}
+}
+@media (min-width:1100px){
+  .col{max-width:1080px}
+  .deck{max-width:420px}
+  .hero-txt .stats b{font-size:36px}
+  .hero-txt .stats span{font-size:12px}
+  .lead{font-size:19px}
+  h2.disp{font-size:64px}
+}
+</style>
+</head>
+<body>
+
+
+<header class="s30-hero">
+  <video class="bg" src="assets/video/bts.mp4" poster="assets/img/p-bts-bw.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+  <div class="bar col"><div class="logo"><img src="assets/logos/30.png" alt="Studio 30"></div><small>Lima, Perú</small></div>
+  <div class="hero-txt col">
+
+    <h1 class="disp">Contenido que <span class="it">mueve marcas.</span></h1>
+    <div class="stats">
+      <div><b>+30M</b><span>Vistas al mes</span></div>
+      <div><b>+10</b><span>Creadores escalados</span></div>
+      <div><b>2022</b><span>Haciendo campañas desde</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="band" aria-hidden="true"><div class="band-in"><span>Influencer marketing</span><span>✦</span><span>Embajadores de marca</span><span>✦</span><span>Producción audiovisual</span><span>✦</span><span>Activaciones y eventos</span><span>✦</span><span>Clips que se viralizan</span><span>✦</span><span>Influencer marketing</span><span>✦</span><span>Embajadores de marca</span><span>✦</span><span>Producción audiovisual</span><span>✦</span><span>Activaciones y eventos</span><span>✦</span><span>Clips que se viralizan</span><span>✦</span><span>Influencer marketing</span><span>✦</span><span>Embajadores de marca</span><span>✦</span><span>Producción audiovisual</span><span>✦</span><span>Activaciones y eventos</span><span>✦</span><span>Clips que se viralizan</span><span>✦</span></div></div>
+
+<div class="col">
+  <section>
+    <div class="lab">Portafolio</div>
+    <h2 class="disp">Campañas que <span class="it">mueven gente</span></h2>
+    <p class="lead">Ideamos, grabamos y publicamos con los creadores que tu público ya sigue.</p>
+    <div class="deck" id="deck" role="region" aria-label="Carrusel de videos de campañas" tabindex="0">
+<button type="button" class="card im-indrive" data-v="assets/video/indrive.mp4" aria-label="Ver video completo: inDrive Food · Campaña"><video muted playsinline loop preload="metadata" src="assets/video/indrive.mp4#t=4"></video><span class="pt"><b>inDrive Food</b>Campaña</span><span class="pl">▶ Ver completo</span></button><button type="button" class="card im-samsung" data-v="assets/video/samsung.mp4" aria-label="Ver video completo: Samsung · TikTok"><video muted playsinline loop preload="metadata" src="assets/video/samsung.mp4#t=4"></video><span class="pt"><b>Samsung</b>TikTok</span><span class="pl">▶ Ver completo</span></button><button type="button" class="card im-hs" data-v="assets/video/hs.mp4" aria-label="Ver video completo: Head &amp; Shoulders · TikTok"><video muted playsinline loop preload="metadata" src="assets/video/hs.mp4#t=4"></video><span class="pt"><b>Head &amp; Shoulders</b>TikTok</span><span class="pl">▶ Ver completo</span></button><button type="button" class="card im-yape" data-v="assets/video/yape.mp4" aria-label="Ver video completo: Yape · Mundialito Yapero"><video muted playsinline loop preload="metadata" src="assets/video/yape.mp4#t=4"></video><span class="pt"><b>Yape</b>Mundialito Yapero</span><span class="pl">▶ Ver completo</span></button><button type="button" class="card im-chinawok" data-v="assets/video/chinawok.mp4" aria-label="Ver video completo: China Wok · Combo Mostrazo"><video muted playsinline loop preload="metadata" src="assets/video/chinawok.mp4#t=4"></video><span class="pt"><b>China Wok</b>Combo Mostrazo</span><span class="pl">▶ Ver completo</span></button><button type="button" class="card im-newera" data-v="assets/video/newera.mp4" aria-label="Ver video completo: New Era · Story"><video muted playsinline loop preload="metadata" src="assets/video/newera.mp4#t=4"></video><span class="pt"><b>New Era</b>Story</span><span class="pl">▶ Ver completo</span></button><button type="button" class="card im-lemon2" data-v="assets/video/lemon2.mp4" aria-label="Ver video completo: Lemon · Échale Lemon"><video muted playsinline loop preload="metadata" src="assets/video/lemon2.mp4#t=4"></video><span class="pt"><b>Lemon</b>Échale Lemon</span><span class="pl">▶ Ver completo</span></button></div>
+    <div class="dots" id="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <p class="deck-hint">Desliza para explorar · Toca para ver el video completo</p>
+    <div class="trust"><span class="lab" style="margin:0 0 8px">Marcas que confiaron en nosotros</span><div class="trust-row"><div class="trust-in">
+      <span class="lg lg-yape"><img src="assets/logos/yape.png" alt="Yape"></span>
+      <span class="lg lg-lemon"><img src="assets/logos/lemon.png" alt="Lemon"></span>
+      <span class="lg"><img src="assets/logos/chinawok.svg" alt="China Wok"></span>
+      <span class="lg"><img src="assets/logos/indrive.svg" alt="inDrive Food"></span>
+      <span class="lg"><img src="assets/logos/hs.svg" alt="Head &amp; Shoulders"></span>
+      <span class="lg"><img src="assets/logos/oldspice.svg" alt="Old Spice"></span>
+      <span class="lg lg-samsung"><img src="assets/logos/samsung.svg" alt="Samsung"></span>
+      <span class="lg"><img src="assets/logos/newera.svg" alt="New Era"></span>
+      <span class="lg"><img src="assets/logos/wow.svg" alt="WOW"></span>
+      <span class="lg lg-yape"><img src="assets/logos/yape.png" alt="Yape"></span>
+      <span class="lg lg-lemon"><img src="assets/logos/lemon.png" alt="Lemon"></span>
+      <span class="lg"><img src="assets/logos/chinawok.svg" alt="China Wok"></span>
+      <span class="lg"><img src="assets/logos/indrive.svg" alt="inDrive Food"></span>
+      <span class="lg"><img src="assets/logos/hs.svg" alt="Head &amp; Shoulders"></span>
+      <span class="lg"><img src="assets/logos/oldspice.svg" alt="Old Spice"></span>
+      <span class="lg lg-samsung"><img src="assets/logos/samsung.svg" alt="Samsung"></span>
+      <span class="lg"><img src="assets/logos/newera.svg" alt="New Era"></span>
+      <span class="lg"><img src="assets/logos/wow.svg" alt="WOW"></span>
+    </div></div></div>
+  </section>
+
+</div>
+
+
+<main class="col">
+  <section class="end"><div class="end-card"><span class="lab" style="color:#c9b48f;margin:0">Hablemos</span><h2 class="disp">¿Hacemos tu <span class="it">próxima campaña?</span></h2><p>Cuéntanos qué quieres lograr y te respondemos por WhatsApp.</p><button class="btn alt open" type="button">COTIZA TU CAMPAÑA</button><div class="direct"><span>Contáctanos directo</span>
+<a class="wa-sm" href="https://wa.me/51963862645" target="_blank" rel="noopener">WhatsApp +51 963 862 645</a></div></div></section>
+
+  <p class="foot">© 2026 Studio 30 · Lima, Perú · studio30.group</p>
+</main>
+
+<div class="sticky"><div class="col"><button class="btn open" type="button">COTIZA TU CAMPAÑA</button></div></div>
+
+<dialog id="sheet" aria-labelledby="sheet-title">
+  <form class="sheet" id="lead" novalidate>
+    <div id="fields" style="display:grid;gap:12px">
+      <div class="top"><div><h2 id="sheet-title">Cotiza tu campaña</h2><p class="s">Llenas 1 minuto y nos llega directo a WhatsApp.</p></div><button class="x" type="button" id="close" aria-label="Cerrar">✕</button></div>
+      <div class="two"><label for="f-name">Nombre<input id="f-name" name="name" autocomplete="name"></label><label for="f-role">Cargo<input id="f-role" name="role" autocomplete="organization-title"></label></div>
+      <label for="f-brand">Marca o empresa<input id="f-brand" name="brand" autocomplete="organization"></label>
+      <label for="f-email">Correo (opcional)<input id="f-email" name="email" type="email" inputmode="email" autocomplete="email"></label>
+      <label for="f-wa">WhatsApp<span class="tel"><select id="f-cc" name="cc" aria-label="Código de país"><option value="+51" selected>🇵🇪 Perú +51</option><option disabled>──────────</option><option value="+93">🇦🇫 Afganistán +93</option><option value="+355">🇦🇱 Albania +355</option><option value="+49">🇩🇪 Alemania +49</option><option value="+376">🇦🇩 Andorra +376</option><option value="+244">🇦🇴 Angola +244</option><option value="+1">🇦🇮 Anguila +1</option><option value="+1">🇦🇬 Antigua y Barbuda +1</option><option value="+966">🇸🇦 Arabia Saudita +966</option><option value="+213">🇩🇿 Argelia +213</option><option value="+54">🇦🇷 Argentina +54</option><option value="+374">🇦🇲 Armenia +374</option><option value="+297">🇦🇼 Aruba +297</option><option value="+61">🇦🇺 Australia +61</option><option value="+43">🇦🇹 Austria +43</option><option value="+994">🇦🇿 Azerbaiyán +994</option><option value="+1">🇧🇸 Bahamas +1</option><option value="+880">🇧🇩 Bangladés +880</option><option value="+1">🇧🇧 Barbados +1</option><option value="+973">🇧🇭 Baréin +973</option><option value="+32">🇧🇪 Bélgica +32</option><option value="+501">🇧🇿 Belice +501</option><option value="+229">🇧🇯 Benín +229</option><option value="+375">🇧🇾 Bielorrusia +375</option><option value="+591">🇧🇴 Bolivia +591</option><option value="+387">🇧🇦 Bosnia y Herzegovina +387</option><option value="+267">🇧🇼 Botsuana +267</option><option value="+55">🇧🇷 Brasil +55</option><option value="+673">🇧🇳 Brunéi +673</option><option value="+359">🇧🇬 Bulgaria +359</option><option value="+226">🇧🇫 Burkina Faso +226</option><option value="+257">🇧🇮 Burundi +257</option><option value="+975">🇧🇹 Bután +975</option><option value="+238">🇨🇻 Cabo Verde +238</option><option value="+855">🇰🇭 Camboya +855</option><option value="+237">🇨🇲 Camerún +237</option><option value="+1">🇨🇦 Canadá +1</option><option value="+974">🇶🇦 Catar +974</option><option value="+235">🇹🇩 Chad +235</option><option value="+56">🇨🇱 Chile +56</option><option value="+86">🇨🇳 China +86</option><option value="+357">🇨🇾 Chipre +357</option><option value="+57">🇨🇴 Colombia +57</option><option value="+269">🇰🇲 Comoras +269</option><option value="+242">🇨🇬 Congo +242</option><option value="+243">🇨🇩 Congo (RD) +243</option><option value="+850">🇰🇵 Corea del Norte +850</option><option value="+82">🇰🇷 Corea del Sur +82</option><option value="+225">🇨🇮 Costa de Marfil +225</option><option value="+506">🇨🇷 Costa Rica +506</option><option value="+385">🇭🇷 Croacia +385</option><option value="+53">🇨🇺 Cuba +53</option><option value="+599">🇨🇼 Curazao +599</option><option value="+45">🇩🇰 Dinamarca +45</option><option value="+1">🇩🇲 Dominica +1</option><option value="+593">🇪🇨 Ecuador +593</option><option value="+20">🇪🇬 Egipto +20</option><option value="+503">🇸🇻 El Salvador +503</option><option value="+971">🇦🇪 Emiratos Árabes Unidos +971</option><option value="+291">🇪🇷 Eritrea +291</option><option value="+421">🇸🇰 Eslovaquia +421</option><option value="+386">🇸🇮 Eslovenia +386</option><option value="+34">🇪🇸 España +34</option><option value="+1">🇺🇸 Estados Unidos +1</option><option value="+372">🇪🇪 Estonia +372</option><option value="+268">🇸🇿 Esuatini +268</option><option value="+251">🇪🇹 Etiopía +251</option><option value="+63">🇵🇭 Filipinas +63</option><option value="+358">🇫🇮 Finlandia +358</option><option value="+679">🇫🇯 Fiyi +679</option><option value="+33">🇫🇷 Francia +33</option><option value="+241">🇬🇦 Gabón +241</option><option value="+220">🇬🇲 Gambia +220</option><option value="+995">🇬🇪 Georgia +995</option><option value="+233">🇬🇭 Ghana +233</option><option value="+350">🇬🇮 Gibraltar +350</option><option value="+1">🇬🇩 Granada +1</option><option value="+30">🇬🇷 Grecia +30</option><option value="+299">🇬🇱 Groenlandia +299</option><option value="+590">🇬🇵 Guadalupe +590</option><option value="+1">🇬🇺 Guam +1</option><option value="+502">🇬🇹 Guatemala +502</option><option value="+594">🇬🇫 Guayana Francesa +594</option><option value="+224">🇬🇳 Guinea +224</option><option value="+240">🇬🇶 Guinea Ecuatorial +240</option><option value="+245">🇬🇼 Guinea-Bisáu +245</option><option value="+592">🇬🇾 Guyana +592</option><option value="+509">🇭🇹 Haití +509</option><option value="+504">🇭🇳 Honduras +504</option><option value="+852">🇭🇰 Hong Kong +852</option><option value="+36">🇭🇺 Hungría +36</option><option value="+91">🇮🇳 India +91</option><option value="+62">🇮🇩 Indonesia +62</option><option value="+964">🇮🇶 Irak +964</option><option value="+98">🇮🇷 Irán +98</option><option value="+353">🇮🇪 Irlanda +353</option><option value="+354">🇮🇸 Islandia +354</option><option value="+1">🇰🇾 Islas Caimán +1</option><option value="+298">🇫🇴 Islas Feroe +298</option><option value="+1">🇻🇮 Islas Vírgenes (EE. UU.) +1</option><option value="+1">🇻🇬 Islas Vírgenes Británicas +1</option><option value="+972">🇮🇱 Israel +972</option><option value="+39">🇮🇹 Italia +39</option><option value="+1">🇯🇲 Jamaica +1</option><option value="+81">🇯🇵 Japón +81</option><option value="+962">🇯🇴 Jordania +962</option><option value="+7">🇰🇿 Kazajistán +7</option><option value="+254">🇰🇪 Kenia +254</option><option value="+996">🇰🇬 Kirguistán +996</option><option value="+965">🇰🇼 Kuwait +965</option><option value="+856">🇱🇦 Laos +856</option><option value="+266">🇱🇸 Lesoto +266</option><option value="+371">🇱🇻 Letonia +371</option><option value="+961">🇱🇧 Líbano +961</option><option value="+231">🇱🇷 Liberia +231</option><option value="+218">🇱🇾 Libia +218</option><option value="+423">🇱🇮 Liechtenstein +423</option><option value="+370">🇱🇹 Lituania +370</option><option value="+352">🇱🇺 Luxemburgo +352</option><option value="+853">🇲🇴 Macao +853</option><option value="+389">🇲🇰 Macedonia del Norte +389</option><option value="+261">🇲🇬 Madagascar +261</option><option value="+60">🇲🇾 Malasia +60</option><option value="+265">🇲🇼 Malaui +265</option><option value="+960">🇲🇻 Maldivas +960</option><option value="+223">🇲🇱 Malí +223</option><option value="+356">🇲🇹 Malta +356</option><option value="+212">🇲🇦 Marruecos +212</option><option value="+596">🇲🇶 Martinica +596</option><option value="+230">🇲🇺 Mauricio +230</option><option value="+222">🇲🇷 Mauritania +222</option><option value="+52">🇲🇽 México +52</option><option value="+373">🇲🇩 Moldavia +373</option><option value="+377">🇲🇨 Mónaco +377</option><option value="+976">🇲🇳 Mongolia +976</option><option value="+382">🇲🇪 Montenegro +382</option><option value="+258">🇲🇿 Mozambique +258</option><option value="+95">🇲🇲 Myanmar +95</option><option value="+264">🇳🇦 Namibia +264</option><option value="+977">🇳🇵 Nepal +977</option><option value="+505">🇳🇮 Nicaragua +505</option><option value="+227">🇳🇪 Níger +227</option><option value="+234">🇳🇬 Nigeria +234</option><option value="+47">🇳🇴 Noruega +47</option><option value="+687">🇳🇨 Nueva Caledonia +687</option><option value="+64">🇳🇿 Nueva Zelanda +64</option><option value="+968">🇴🇲 Omán +968</option><option value="+31">🇳🇱 Países Bajos +31</option><option value="+92">🇵🇰 Pakistán +92</option><option value="+970">🇵🇸 Palestina +970</option><option value="+507">🇵🇦 Panamá +507</option><option value="+675">🇵🇬 Papúa Nueva Guinea +675</option><option value="+595">🇵🇾 Paraguay +595</option><option value="+689">🇵🇫 Polinesia Francesa +689</option><option value="+48">🇵🇱 Polonia +48</option><option value="+351">🇵🇹 Portugal +351</option><option value="+1">🇵🇷 Puerto Rico +1</option><option value="+44">🇬🇧 Reino Unido +44</option><option value="+236">🇨🇫 República Centroafricana +236</option><option value="+420">🇨🇿 República Checa +420</option><option value="+1">🇩🇴 República Dominicana +1</option><option value="+262">🇷🇪 Reunión +262</option><option value="+250">🇷🇼 Ruanda +250</option><option value="+40">🇷🇴 Rumania +40</option><option value="+7">🇷🇺 Rusia +7</option><option value="+685">🇼🇸 Samoa +685</option><option value="+1">🇰🇳 San Cristóbal y Nieves +1</option><option value="+378">🇸🇲 San Marino +378</option><option value="+1">🇻🇨 San Vicente y las Granadinas +1</option><option value="+1">🇱🇨 Santa Lucía +1</option><option value="+239">🇸🇹 Santo Tomé y Príncipe +239</option><option value="+221">🇸🇳 Senegal +221</option><option value="+381">🇷🇸 Serbia +381</option><option value="+248">🇸🇨 Seychelles +248</option><option value="+232">🇸🇱 Sierra Leona +232</option><option value="+65">🇸🇬 Singapur +65</option><option value="+963">🇸🇾 Siria +963</option><option value="+252">🇸🇴 Somalia +252</option><option value="+94">🇱🇰 Sri Lanka +94</option><option value="+27">🇿🇦 Sudáfrica +27</option><option value="+249">🇸🇩 Sudán +249</option><option value="+211">🇸🇸 Sudán del Sur +211</option><option value="+46">🇸🇪 Suecia +46</option><option value="+41">🇨🇭 Suiza +41</option><option value="+597">🇸🇷 Surinam +597</option><option value="+66">🇹🇭 Tailandia +66</option><option value="+886">🇹🇼 Taiwán +886</option><option value="+255">🇹🇿 Tanzania +255</option><option value="+992">🇹🇯 Tayikistán +992</option><option value="+670">🇹🇱 Timor Oriental +670</option><option value="+228">🇹🇬 Togo +228</option><option value="+676">🇹🇴 Tonga +676</option><option value="+1">🇹🇹 Trinidad y Tobago +1</option><option value="+216">🇹🇳 Túnez +216</option><option value="+993">🇹🇲 Turkmenistán +993</option><option value="+90">🇹🇷 Turquía +90</option><option value="+380">🇺🇦 Ucrania +380</option><option value="+256">🇺🇬 Uganda +256</option><option value="+598">🇺🇾 Uruguay +598</option><option value="+998">🇺🇿 Uzbekistán +998</option><option value="+678">🇻🇺 Vanuatu +678</option><option value="+58">🇻🇪 Venezuela +58</option><option value="+84">🇻🇳 Vietnam +84</option><option value="+967">🇾🇪 Yemen +967</option><option value="+253">🇩🇯 Yibuti +253</option><option value="+260">🇿🇲 Zambia +260</option><option value="+263">🇿🇼 Zimbabue +263</option></select><input id="f-wa" name="wa" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="999 999 999"></span></label>
+      <label for="f-goal">Objetivo<select id="f-goal" name="goal"><option value="">Elige uno</option><option>Ventas</option><option>Registros o descargas</option><option>Lanzamiento</option><option>Posicionamiento de marca</option></select></label>
+      <label for="f-dates">Fechas de la campaña<input id="f-dates" name="dates" placeholder="Ej.: diciembre 2026"></label>
+      <button class="btn" type="submit">ENVIAR POR WHATSAPP</button>
+      <small id="err" role="alert"></small>
+      <p class="wa">¿Prefieres hablar directo? <a href="https://wa.me/51963862645" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></p>
+    </div>
+    <div class="done" id="done" hidden>
+      <b>¡Recibido! ✓</b>
+      <p>Te escribimos en menos de 24 horas hábiles.</p>
+    </div>
+    <div class="done" id="send" hidden>
+      <button class="x" type="button" id="close-send" aria-label="Cerrar">✕</button>
+      <b style="color:var(--ink)">¡Listo! ✓</b>
+      <p>Si WhatsApp no se abrió solo, toca aquí:</p>
+      <a class="btn" id="wa-send" href="https://wa.me/51963862645" target="_blank" rel="noopener">ENVIAR POR WHATSAPP</a>
+
+    </div>
+  </form>
+</dialog>
+
+<dialog id="lb" aria-label="Foto"><button class="x" type="button" id="lb-x" aria-label="Cerrar">✕</button><div id="lb-video-frame"><video id="lb-vid" controls playsinline hidden></video></div><img id="lb-img" alt=""><p id="lb-cap"></p></dialog>
+
+<script>
+setTimeout(()=>document.querySelector('.sticky').classList.add('in'),700);
+
+(()=>{const deck=document.getElementById("deck"),cards=[...document.querySelectorAll("#deck .card")],dots=[...document.querySelectorAll("#dots i")];if(!deck||!cards.length)return;
+deck.setAttribute("role","region");deck.setAttribute("aria-label","Carrusel de videos de campañas");deck.tabIndex=0;
+let order=cards.map((_,i)=>i),busy=false,changeTimer=null,pointer=null,suppressClick=false;const rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const paint=()=>{order.forEach((ci,pos)=>{const c=cards[ci];c.classList.remove("p0","p1","p2","p3","out");c.classList.add("p"+Math.min(pos,3));const v=c.querySelector("video");if(pos===0){try{v.currentTime=4}catch(_){}v.play().catch(()=>{})}else{v.pause()}});dots.forEach((d,i)=>d.classList.toggle("on",i===order[0]))};
+const next=()=>{if(busy)return;busy=true;const f=cards[order[0]];f.classList.add("out");changeTimer=setTimeout(()=>{order.push(order.shift());paint();busy=false;changeTimer=null},650)};
+const previous=()=>{if(busy)return;order.unshift(order.pop());paint()};
+deck.addEventListener("pointerdown",e=>{if(e.button!==0)return;pointer={id:e.pointerId,x:e.clientX,y:e.clientY}});
+window.addEventListener("pointerup",e=>{if(!pointer||e.pointerId!==pointer.id)return;const dx=e.clientX-pointer.x,dy=e.clientY-pointer.y;pointer=null;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)){suppressClick=true;setTimeout(()=>{suppressClick=false},100);dx<0?next():previous()}});
+window.addEventListener("pointercancel",e=>{if(pointer&&e.pointerId===pointer.id)pointer=null});
+deck.addEventListener("click",e=>{if(suppressClick){e.preventDefault();e.stopImmediatePropagation();suppressClick=false}},true);
+deck.addEventListener("keydown",e=>{if(e.key==="ArrowLeft"){e.preventDefault();previous()}else if(e.key==="ArrowRight"){e.preventDefault();next()}});
+paint();
+cards.forEach(c=>c.addEventListener("click",()=>{if(changeTimer){clearTimeout(changeTimer);changeTimer=null;busy=false}if(c!==cards[order[0]]){while(cards[order[0]]!==c)order.push(order.shift());paint()}const lb=document.getElementById("lb"),vb=document.getElementById("lb-vid");vb.src=c.dataset.v;vb.hidden=false;document.getElementById("lb-img").hidden=true;vb.muted=false;vb.play().catch(()=>{});document.getElementById("lb-cap").textContent=c.querySelector(".pt b").textContent;try{lb.showModal()}catch(_){lb.setAttribute("open","")}}));})();
+
+document.getElementById("lb-x").onclick=()=>document.getElementById("lb").close();
+document.getElementById("lb").addEventListener("close",()=>{const v=document.getElementById("lb-vid");v.pause();v.removeAttribute("src");v.load()});
+document.getElementById("lb").addEventListener("click",e=>{if(e.target.id==="lb")e.target.close()});
+const FORM_ACTION="https://api.web3forms.com/submit";
+const FORM_KEY="";
+const dlg=document.getElementById("sheet"),f=document.getElementById("lead"),err=document.getElementById("err");
+const open=()=>{try{dlg.showModal()}catch(_){dlg.setAttribute("open","")}setTimeout(()=>document.getElementById("f-name").focus(),50)};
+document.querySelectorAll(".open").forEach(b=>b.addEventListener("click",open));
+document.getElementById("close").onclick=()=>dlg.close();
+document.getElementById("close-send").onclick=()=>dlg.close();
+dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
+f.addEventListener("submit",async e=>{
+  e.preventDefault();
+  const d=Object.fromEntries(new FormData(f));
+  if(!d.name||!d.brand||!d.goal){err.textContent="Completa nombre, marca y objetivo.";return}
+  err.textContent="";
+  document.getElementById("fields").hidden=true;
+  const txt=`Hola Studio 30, quiero cotizar una campaña.\nNombre: ${d.name}${d.role?" ("+d.role+")":""}\nMarca: ${d.brand}\n${d.email?"Correo: "+d.email+"\n":""}${d.wa?"WhatsApp: "+d.cc+" "+d.wa+"\n":""}Objetivo: ${d.goal}${d.dates?"\nFechas: "+d.dates:""}`;
+  if(FORM_KEY){const body=new FormData();body.append("access_key",FORM_KEY);body.append("subject","Nueva cotización Studio 30: "+d.brand);body.append("from_name","Web Studio 30");for(const k in d)if(d[k])body.append(k,d[k]);try{fetch(FORM_ACTION,{method:"POST",body,keepalive:true}).catch(()=>{})}catch(_){}}
+  const link="https://wa.me/51963862645?text="+encodeURIComponent(txt);
+  document.getElementById("wa-send").href=link;
+  document.getElementById("send").hidden=false;
+  const a=document.getElementById("wa-send");try{a.click()}catch(_){}
+});
+</script>
+
+</body>
+</html>

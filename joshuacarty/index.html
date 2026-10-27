@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Joshua Carty, founder de Studio 30 y Las Jijas. Construyo empresas detrás de marcas personales.">
+<title>De Creador a Founder</title>
+<link rel="icon" type="image/png" href="../assets/logos/30.png">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Archivo:wdth,wght@62..125,700..900&family=Instrument+Serif:ital@1&display=swap">
+<style>
+/* Layout: teléfono primero (columna 480px). Tono de firma: foto 16:9 con la tesis encima, la diferencia audiencia/empresa, las 3 formas de trabajar, King León como caso de estudio y el botón flotante al mapa. Paleta del playbook: negro, blanco roto, carbón y señal verde ácido */
+:root{
+  --bg:#0a0a0a; --ink:#f2f0ea; --muted:#9c9a94; --line:#262624; --card:#141413;
+  --sig:#c8f03c; --sig-ink:#0f1400; --sheet:#f2f0ea; --sheet-ink:#111110; --ok:#2f8f4e;
+  --font:"DM Sans","Helvetica Neue",Arial,sans-serif;
+  --display:"Archivo","Arial Narrow",Impact,sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.45;padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+.col{max-width:480px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;letter-spacing:-.025em;text-wrap:balance}
+p{margin:0}
+.btn{display:block;width:100%;background:var(--sig);color:var(--sig-ink);font:800 17px var(--font);letter-spacing:.04em;border:0;border-radius:12px;padding:17px 18px;cursor:pointer;text-align:center;text-decoration:none}
+.btn:focus-visible,input:focus-visible,select:focus-visible,.x:focus-visible{outline:3px solid var(--sig);outline-offset:2px}
+/* hero */
+.hero{position:relative;max-width:480px;margin:0 auto;background:var(--bg) url("assets/img/joshua-podcast.jpg") center top/100% auto no-repeat}
+.hero::before{content:"";position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;background:linear-gradient(180deg,rgba(10,10,10,.35) 0%,rgba(10,10,10,0) 28%,rgba(10,10,10,.6) 62%,var(--bg) 100%)}
+.bar{position:absolute;top:0;left:0;right:0;z-index:1;display:flex;justify-content:space-between;align-items:center;padding:calc(6px + env(safe-area-inset-top,0px)) 20px 0}
+.bar a{display:flex;align-items:center;color:#fff;text-decoration:none;font-weight:800;letter-spacing:.14em;font-size:12px}
+.bar a img{display:block;width:40px;height:40px;object-fit:contain}
+.bar span{font-size:12px;color:#e9e7e1;letter-spacing:.02em}
+.hero-txt{position:relative;z-index:1;display:grid;gap:14px;padding-top:calc(min(100vw,480px) * .5625 * .6);padding-bottom:30px;width:100%}
+.kicker{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--sig)}
+.hero h1{font-family:var(--display);font-stretch:68%;font-weight:900;text-transform:uppercase;font-size:clamp(48px,14vw,68px);line-height:.88;letter-spacing:-.01em}
+.hero h1 .ln{display:inline-block}
+.hero h1 .acc{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;font-stretch:100%;color:var(--sig);letter-spacing:-.02em;font-size:1.02em;line-height:1}
+@media (prefers-reduced-motion:no-preference){
+ .hero{animation:kb 18s ease-in-out infinite alternate}
+ @keyframes kb{from{background-size:100% auto}to{background-size:108% auto}}
+ .hero-txt>*,.hero h1 .ln{animation:up .9s cubic-bezier(.2,.8,.2,1) both}
+ .hero h1 .ln:nth-child(1){animation-delay:.05s}.hero h1 .ln:nth-child(2){animation-delay:.15s}.hero h1 .ln:nth-child(3){animation-delay:.25s}
+ .hero-txt .sub{animation-delay:.35s}.hero-txt .stats{animation-delay:.45s}.hero-txt .by{animation-delay:.55s}
+ @keyframes up{from{transform:translateY(18px);opacity:.25}to{transform:none;opacity:1}}
+}
+.hero .sub{font-size:17px;color:#cfcdc6}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.stats div{border:1px solid #2e2e2b;background:rgba(20,20,19,.7);border-radius:12px;padding:10px 8px;text-align:center;min-width:0}
+.stats b{display:block;font-family:var(--display);font-stretch:75%;font-size:26px;font-weight:900;letter-spacing:-.02em;color:var(--sig);line-height:1.1}
+.stats span{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;line-height:1.25;margin-top:4px}
+.by{font-size:13px;color:var(--muted)}
+.by b{color:var(--ink);font-weight:700}
+/* banda */
+.band{overflow:hidden;background:var(--sig);color:var(--sig-ink);transform:rotate(-2deg);margin:8px -10px 26px;padding:10px 0;max-width:520px;margin-left:auto;margin-right:auto}
+.band-in{display:flex;gap:18px;width:max-content;align-items:center;animation:run 18s linear infinite}
+.band span{font-family:var(--display);font-stretch:70%;font-weight:900;font-size:24px;text-transform:uppercase;letter-spacing:.01em;white-space:nowrap}
+.band i{font-style:normal;font-size:16px}
+@media (prefers-reduced-motion:reduce){.band-in{animation:none}}
+/* secciones */
+section{padding-block:30px}
+.lab{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+h2{font-size:28px;font-weight:800;line-height:1.08;margin-bottom:18px}
+.thesis-sec{padding-block:10px 30px}
+.thesis strong{font-family:var(--display);font-stretch:68%;font-weight:900;font-size:1.35em;letter-spacing:0;line-height:.9}
+.thesis-card{background:var(--sig);color:var(--sig-ink);border-radius:20px;padding:26px 22px}
+.thesis{font-size:clamp(32px,8.6vw,42px);line-height:1.08;font-weight:800;letter-spacing:-.03em}
+.thesis em{font-style:normal;background:var(--sig-ink);color:var(--sig);padding:0 .15em;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.vs{display:grid;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.vs .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid var(--line)}
+.vs .row:first-child{border-top:0}
+.vs .row div{padding:12px 14px;font-size:14px;min-width:0}
+.vs .row div+div{border-left:1px solid var(--line)}
+.vs .head div{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.vs .head div+div{color:var(--sig)}
+.vs .k{display:block;font-size:11px;color:var(--muted);margin-bottom:2px}
+.lines{display:grid;gap:10px}
+.line{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:6px}
+.line .tag{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--sig)}
+.line h3{font-size:19px}
+.line p{font-size:15px;color:var(--muted)}
+.line.sel{border-color:var(--sig)}
+.collage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:110px;gap:6px;margin-bottom:18px}
+.collage img{width:100%;max-width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
+.collage .big{grid-column:span 3;grid-row:span 2;object-position:center 30%}
+.study{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.study li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;font-size:15px}
+.study b{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:16px}
+.nums div{border:1px solid var(--line);border-radius:12px;padding:12px 8px;text-align:center}
+.nums b{display:block;font-size:22px;font-weight:800;line-height:1}
+.nums span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.big-h{font-family:var(--display);font-stretch:70%;font-weight:900;text-transform:uppercase;font-size:clamp(34px,9.6vw,44px);line-height:.92;letter-spacing:0}
+.big-h .hl{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;font-stretch:100%;background:none;color:var(--sig);padding:0}
+.hl{background:var(--sig);color:var(--sig-ink);padding:0 .12em;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.reel{display:block;margin:6px -20px 10px;overflow-x:auto;overflow-y:hidden;touch-action:pan-x;cursor:grab;user-select:none;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.reel::-webkit-scrollbar{display:none}
+.reel.is-dragging{cursor:grabbing}
+.track{display:flex;gap:10px;width:max-content;padding:0 20px}
+.tile{position:relative;margin:0;padding:0;border:0;cursor:zoom-in;flex:none;width:170px;height:230px;border-radius:14px;overflow:hidden;background:#1a1a19 center 25%/cover no-repeat}
+.brands{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:-4px 0 14px}
+.brands span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.brands b{font-family:var(--display);font-stretch:75%;font-weight:900;text-transform:uppercase;font-size:15px;border:1px solid #2e2e2b;border-radius:999px;padding:4px 10px}
+.hint{font-size:12px;color:var(--muted);margin:-8px 0 14px;text-align:center}
+#lb{max-width:min(92vw,560px);max-height:92%;margin:auto;padding:0;border:0;border-radius:16px;background:#000}
+#lb::backdrop{background:rgba(0,0,0,.85)}
+#lb img{display:block;max-width:100%;max-height:82vh;margin:0 auto}
+#lb .x{position:absolute;top:10px;right:10px}
+#lb p{color:#f2f0ea;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px}
+.im-mood{background-image:url("assets/img/king-moodboard-9x16.jpg")}.im-casa{background-image:url("assets/img/bh-casa.jpg")}.im-awards{background-image:url("assets/img/bh-awards-king.jpg")}.im-live{background-image:url("assets/img/bh-live.jpg")}.im-indrive{background-image:url("assets/img/c-indrive.jpg")}.im-teapuesto{background-image:url("assets/img/c-teapuesto.jpg")}.im-chinawok{background-image:url("assets/img/c-chinawok.jpg")}.im-yape{background-image:url("assets/img/c-yape.jpg")}
+.tile .cap{position:absolute;left:8px;bottom:8px;background:#f2f0ea;color:#111;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 7px;border-radius:4px}
+.tile .cap.on{background:var(--sig);color:var(--sig-ink)}
+@keyframes run{to{transform:translateX(-50%)}}
+.case-stats{margin-bottom:10px}
+.steps-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.steps-row div{border:1px solid #2e2e2b;border-radius:12px;padding:10px 8px;min-width:0}
+.steps-row span{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.steps-row b{display:block;font-size:13px;line-height:1.25}
+.steps-row .on{background:var(--sig);border-color:var(--sig);color:var(--sig-ink)}
+.steps-row .on span{color:var(--sig-ink);opacity:.7}
+.src{font-size:12px;color:var(--muted);margin-top:10px}
+.founder{display:grid;grid-template-columns:60px minmax(0,1fr);gap:14px;align-items:center}
+.founder img{width:60px;height:60px;border-radius:50%;object-fit:cover}
+.founder p{color:var(--muted);font-size:15px}
+.flag{font-size:clamp(26px,7vw,32px);line-height:1.12;font-weight:700;letter-spacing:-.02em}
+.flag b{display:block;margin-top:10px;font-family:var(--display);font-stretch:68%;font-weight:900;text-transform:uppercase;font-size:clamp(46px,13vw,64px);line-height:.88;letter-spacing:0}
+.flag b{color:var(--sig);font-weight:700}
+.foot{font-size:12px;color:var(--muted);text-align:center;padding-block:22px}
+/* botón flotante */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:5;background:linear-gradient(180deg,rgba(10,10,10,0),var(--bg) 35%);padding:18px 0 calc(12px + env(safe-area-inset-bottom,0px));transform:translateY(130%);opacity:0;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s ease}
+.sticky.in{transform:none;opacity:1}
+.sticky .btn{min-height:64px;background:#fff;color:#405c00;border:1px solid #dce8b8;box-shadow:0 10px 30px rgba(200,240,60,.18);font-size:18px;letter-spacing:.06em}
+@media (prefers-reduced-motion:reduce){.sticky{transition:none}}
+/* hoja del formulario */
+dialog{border:0;padding:0;margin:auto auto 0;width:100%;max-width:480px;max-height:92%;border-radius:22px 22px 0 0;background:var(--sheet);color:var(--sheet-ink)}
+dialog::backdrop{background:rgba(0,0,0,.65)}
+.sheet{padding:22px 20px calc(22px + env(safe-area-inset-bottom,0px));display:grid;gap:12px}
+.sheet .top{display:flex;justify-content:space-between;align-items:start;gap:12px}
+.sheet h2{font-size:23px;margin:0;color:var(--sheet-ink)}
+.sheet .s{font-size:14px;color:#57554f}
+.x{background:#e4e2db;border:0;border-radius:50%;width:34px;height:34px;font-size:18px;cursor:pointer;color:#111;flex:none}
+.sheet label{display:grid;gap:5px;font-size:13px;font-weight:700}
+.sheet input,.sheet select{font:16px var(--font);color:#111;background:#fff;border:1.5px solid #d9d6cd;border-radius:12px;padding:13px 12px;width:100%}
+.sheet .btn{background:#111;color:var(--sig)}
+.sheet small{font-size:12px;color:#b42318}
+.done{display:grid;gap:12px;text-align:center;padding-block:12px}
+[hidden]{display:none!important}
+.wa-lead{background:#25d366!important;color:#06240f!important}
+.chan{border:0;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chan legend{font-size:13px;font-weight:700;margin-bottom:6px;padding:0}
+.chan label{display:flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid #d9d6cd;border-radius:12px;padding:12px;font-weight:700;cursor:pointer;background:#fff}
+.chan label:has(input:checked){border-color:#111;background:#111;color:var(--sig)}
+.chan input{accent-color:#c8f03c}
+.tel{display:grid;grid-template-columns:118px minmax(0,1fr);gap:8px}
+.tel select{text-overflow:ellipsis}
+.done b{font-size:23px;color:var(--ok)}
+
+/* ===== Responsive: tablet y escritorio ===== */
+@media (min-width:768px){
+  .col{max-width:720px}
+  .bar{padding-left:40px;padding-right:40px}
+  .bar a,.bar span{font-size:14px}
+  .hero{max-width:none;min-height:86vh;display:flex;align-items:flex-end;background-size:cover;background-position:62% 30%}
+  .hero::before{aspect-ratio:auto;bottom:0;background:linear-gradient(90deg,rgba(10,10,10,.92) 0%,rgba(10,10,10,.6) 45%,rgba(10,10,10,.12) 100%),linear-gradient(180deg,rgba(10,10,10,.35) 0%,transparent 25%,transparent 70%,var(--bg) 100%)}
+  .hero-txt{padding-top:120px;padding-bottom:56px}
+  .hero-txt>*{max-width:560px}
+  .hero h1{font-size:clamp(64px,8vw,104px)}
+  .band{max-width:none;margin:0 -10px 40px}
+  section{padding-block:48px}
+  .thesis{font-size:clamp(42px,5vw,60px)}
+  .reel{margin-left:0;margin-right:0}
+  .tile{width:220px;height:300px}
+  .flag{font-size:36px}.flag b{font-size:clamp(64px,7vw,92px)}
+  .sticky .col{max-width:480px}
+  dialog{margin:auto;border-radius:22px;max-width:480px}
+}
+@media (min-width:1100px){
+  .col{max-width:1080px}
+  .bar{left:50%;right:auto;width:min(1080px,100%);transform:translateX(-50%)}
+  .hero-txt>*{max-width:640px}
+  .thesis-card{padding:48px 44px}
+  .stats{max-width:520px}
+  .case-stats,.steps-row{max-width:none}
+}
+</style>
+</head>
+<body>
+
+
+<header class="hero" role="img" aria-label="Joshua Carty grabando un podcast">
+  <div class="bar"><a href="/" target="_blank" rel="noopener" aria-label="Studio 30"><img src="../assets/logos/30.png" alt="Studio 30"></a><span>De Creador a Founder</span></div>
+  <div class="hero-txt col">
+    <div class="kicker">Audience → Business</div>
+    <h1><span class="ln">Construyo empresas</span> <span class="ln">detrás de</span> <span class="ln acc">marcas personales.</span></h1>
+    <p class="sub">Estrategia, oferta y monetización para personas que ya tienen audiencia.</p>
+    <div class="stats">
+      <div><b>+US$2M</b><span>Revenue acumulado</span></div>
+      <div><b>+30M</b><span>Vistas al mes</span></div>
+      <div><b>+10</b><span>Creadores escalados</span></div>
+    </div>
+    <p class="by"><b>Joshua Carty</b> · Founder de Studio 30 y Las Jijas · Manager de King León</p>
+  </div>
+</header>
+
+<div class="band" aria-hidden="true"><div class="band-in"><span>De Creador a Founder</span><i>✦</i><span>Audience → Business</span><i>✦</i><span>Studio 30</span><i>✦</i><span>De Creador a Founder</span><i>✦</i><span>Audience → Business</span><i>✦</i><span>Studio 30</span><i>✦</i></div></div>
+
+<main class="col">
+  <section class="thesis-sec">
+    <div class="thesis-card"><p class="thesis">Un <strong>CREADOR</strong> genera atención. Un <strong>FOUNDER</strong> convierte esa atención en <em>ingresos, recurrencia y activos</em>.</p></div>
+  </section>
+
+  <section>
+    <div class="lab">Caso de estudio</div>
+    <h2 class="big-h">King León: de creador viral a <span class="hl">marca con negocio propio</span></h2>
+    <div class="reel" aria-label="De Basic House a King León 2027">
+      <div class="track"><button type="button" class="tile im-mood" aria-label="Ver foto: King León 2027"><span class="cap on">King León 2027</span></button><button type="button" class="tile im-teapuesto" aria-label="Ver foto: Embajador Te Apuesto"><span class="cap">Embajador Te Apuesto</span></button><button type="button" class="tile im-yape" aria-label="Ver foto: Yape"><span class="cap">Yape</span></button><button type="button" class="tile im-indrive" aria-label="Ver foto: inDrive Food"><span class="cap">inDrive Food</span></button><button type="button" class="tile im-chinawok" aria-label="Ver foto: China Wok"><span class="cap">China Wok</span></button><button type="button" class="tile im-casa" aria-label="Ver foto: Basic House 2022/2024"><span class="cap">Basic House 2022/2024</span></button><button type="button" class="tile im-awards" aria-label="Ver foto: Luminy Awards"><span class="cap">Luminy Awards</span></button><button type="button" class="tile im-live" aria-label="Ver foto: En vivo"><span class="cap">En vivo</span></button><button type="button" class="tile im-mood" aria-label="Ver foto: King León 2027"><span class="cap on">King León 2027</span></button><button type="button" class="tile im-teapuesto" aria-label="Ver foto: Embajador Te Apuesto"><span class="cap">Embajador Te Apuesto</span></button><button type="button" class="tile im-yape" aria-label="Ver foto: Yape"><span class="cap">Yape</span></button><button type="button" class="tile im-indrive" aria-label="Ver foto: inDrive Food"><span class="cap">inDrive Food</span></button><button type="button" class="tile im-chinawok" aria-label="Ver foto: China Wok"><span class="cap">China Wok</span></button><button type="button" class="tile im-casa" aria-label="Ver foto: Basic House 2022/2024"><span class="cap">Basic House 2022/2024</span></button><button type="button" class="tile im-awards" aria-label="Ver foto: Luminy Awards"><span class="cap">Luminy Awards</span></button><button type="button" class="tile im-live" aria-label="Ver foto: En vivo"><span class="cap">En vivo</span></button></div>
+    </div>
+    <p class="hint">Desliza o arrastra para explorar · Toca una foto para verla</p>
+    <div class="brands"><span>Campañas con</span><b>Te Apuesto</b><b>Yape</b><b>inDrive Food</b><b>China Wok</b></div>
+    <div class="stats case-stats">
+      <div><b>1.3M</b><span>TikTok</span></div>
+      <div><b>336K</b><span>Instagram</span></div>
+      <div><b>~300K</b><span>YouTube</span></div>
+    </div>
+    <div class="steps-row">
+      <div><span>Antes</span><b>Campañas sueltas</b></div>
+      <div><span>Hicimos</span><b>Equipo, comercial y carrera</b></div>
+      <div class="on"><span>Hoy</span><b>Embajadurías + Las Jijas</b></div>
+    </div>
+    <p class="src">Seguidores de King León a agosto de 2026.</p>
+  </section>
+
+  <section>
+    <div class="founder"><img src="assets/img/joshua-avatar.jpg" alt="Joshua Carty"><div><b>Joshua Carty</b><p>Empecé en Basic House, una casa de creadores. Hoy dirijo Studio 30 y Las Jijas.</p></div></div>
+  </section>
+
+  <section>
+    <p class="flag">Si ya tienes audiencia, no necesitas ser un mejor influencer. <b>Necesitas convertirte en empresario.</b></p>
+  </section>
+
+  <p class="foot">Studio 30 · studio30.group</p>
+</main>
+
+<div class="sticky"><div class="col"><button class="btn open" type="button">QUIERO MI MAPA</button></div></div>
+
+<iframe id="lead-submit-frame" name="lead-submit-frame" title="Resultado del envío del formulario" hidden></iframe>
+
+<dialog id="sheet" aria-labelledby="sheet-title">
+  <form class="sheet" id="lead" novalidate>
+    <div id="fields" style="display:grid;gap:12px">
+      <div class="top"><div><h2 id="sheet-title">El mapa de tu negocio</h2><p class="s">Demostración de portafolio: este formulario no envía ni guarda datos.</p></div><button class="x" type="button" id="close" aria-label="Cerrar">✕</button></div>
+      <label for="f-name">Nombre<input id="f-name" name="name" autocomplete="name"></label>
+      <label for="f-email">Correo<input id="f-email" name="email" type="email" inputmode="email" autocomplete="email"></label>
+      <label for="f-wa">WhatsApp<span class="tel"><select id="f-cc" name="cc" aria-label="Código de país"><option value="+51" selected>🇵🇪 Perú +51</option><option disabled>──────────</option><option value="+93">🇦🇫 Afganistán +93</option><option value="+355">🇦🇱 Albania +355</option><option value="+49">🇩🇪 Alemania +49</option><option value="+376">🇦🇩 Andorra +376</option><option value="+244">🇦🇴 Angola +244</option><option value="+1">🇦🇮 Anguila +1</option><option value="+1">🇦🇬 Antigua y Barbuda +1</option><option value="+966">🇸🇦 Arabia Saudita +966</option><option value="+213">🇩🇿 Argelia +213</option><option value="+54">🇦🇷 Argentina +54</option><option value="+374">🇦🇲 Armenia +374</option><option value="+297">🇦🇼 Aruba +297</option><option value="+61">🇦🇺 Australia +61</option><option value="+43">🇦🇹 Austria +43</option><option value="+994">🇦🇿 Azerbaiyán +994</option><option value="+1">🇧🇸 Bahamas +1</option><option value="+880">🇧🇩 Bangladés +880</option><option value="+1">🇧🇧 Barbados +1</option><option value="+973">🇧🇭 Baréin +973</option><option value="+32">🇧🇪 Bélgica +32</option><option value="+501">🇧🇿 Belice +501</option><option value="+229">🇧🇯 Benín +229</option><option value="+375">🇧🇾 Bielorrusia +375</option><option value="+591">🇧🇴 Bolivia +591</option><option value="+387">🇧🇦 Bosnia y Herzegovina +387</option><option value="+267">🇧🇼 Botsuana +267</option><option value="+55">🇧🇷 Brasil +55</option><option value="+673">🇧🇳 Brunéi +673</option><option value="+359">🇧🇬 Bulgaria +359</option><option value="+226">🇧🇫 Burkina Faso +226</option><option value="+257">🇧🇮 Burundi +257</option><option value="+975">🇧🇹 Bután +975</option><option value="+238">🇨🇻 Cabo Verde +238</option><option value="+855">🇰🇭 Camboya +855</option><option value="+237">🇨🇲 Camerún +237</option><option value="+1">🇨🇦 Canadá +1</option><option value="+974">🇶🇦 Catar +974</option><option value="+235">🇹🇩 Chad +235</option><option value="+56">🇨🇱 Chile +56</option><option value="+86">🇨🇳 China +86</option><option value="+357">🇨🇾 Chipre +357</option><option value="+57">🇨🇴 Colombia +57</option><option value="+269">🇰🇲 Comoras +269</option><option value="+242">🇨🇬 Congo +242</option><option value="+243">🇨🇩 Congo (RD) +243</option><option value="+850">🇰🇵 Corea del Norte +850</option><option value="+82">🇰🇷 Corea del Sur +82</option><option value="+225">🇨🇮 Costa de Marfil +225</option><option value="+506">🇨🇷 Costa Rica +506</option><option value="+385">🇭🇷 Croacia +385</option><option value="+53">🇨🇺 Cuba +53</option><option value="+599">🇨🇼 Curazao +599</option><option value="+45">🇩🇰 Dinamarca +45</option><option value="+1">🇩🇲 Dominica +1</option><option value="+593">🇪🇨 Ecuador +593</option><option value="+20">🇪🇬 Egipto +20</option><option value="+503">🇸🇻 El Salvador +503</option><option value="+971">🇦🇪 Emiratos Árabes Unidos +971</option><option value="+291">🇪🇷 Eritrea +291</option><option value="+421">🇸🇰 Eslovaquia +421</option><option value="+386">🇸🇮 Eslovenia +386</option><option value="+34">🇪🇸 España +34</option><option value="+1">🇺🇸 Estados Unidos +1</option><option value="+372">🇪🇪 Estonia +372</option><option value="+268">🇸🇿 Esuatini +268</option><option value="+251">🇪🇹 Etiopía +251</option><option value="+63">🇵🇭 Filipinas +63</option><option value="+358">🇫🇮 Finlandia +358</option><option value="+679">🇫🇯 Fiyi +679</option><option value="+33">🇫🇷 Francia +33</option><option value="+241">🇬🇦 Gabón +241</option><option value="+220">🇬🇲 Gambia +220</option><option value="+995">🇬🇪 Georgia +995</option><option value="+233">🇬🇭 Ghana +233</option><option value="+350">🇬🇮 Gibraltar +350</option><option value="+1">🇬🇩 Granada +1</option><option value="+30">🇬🇷 Grecia +30</option><option value="+299">🇬🇱 Groenlandia +299</option><option value="+590">🇬🇵 Guadalupe +590</option><option value="+1">🇬🇺 Guam +1</option><option value="+502">🇬🇹 Guatemala +502</option><option value="+594">🇬🇫 Guayana Francesa +594</option><option value="+224">🇬🇳 Guinea +224</option><option value="+240">🇬🇶 Guinea Ecuatorial +240</option><option value="+245">🇬🇼 Guinea-Bisáu +245</option><option value="+592">🇬🇾 Guyana +592</option><option value="+509">🇭🇹 Haití +509</option><option value="+504">🇭🇳 Honduras +504</option><option value="+852">🇭🇰 Hong Kong +852</option><option value="+36">🇭🇺 Hungría +36</option><option value="+91">🇮🇳 India +91</option><option value="+62">🇮🇩 Indonesia +62</option><option value="+964">🇮🇶 Irak +964</option><option value="+98">🇮🇷 Irán +98</option><option value="+353">🇮🇪 Irlanda +353</option><option value="+354">🇮🇸 Islandia +354</option><option value="+1">🇰🇾 Islas Caimán +1</option><option value="+298">🇫🇴 Islas Feroe +298</option><option value="+1">🇻🇮 Islas Vírgenes (EE. UU.) +1</option><option value="+1">🇻🇬 Islas Vírgenes Británicas +1</option><option value="+972">🇮🇱 Israel +972</option><option value="+39">🇮🇹 Italia +39</option><option value="+1">🇯🇲 Jamaica +1</option><option value="+81">🇯🇵 Japón +81</option><option value="+962">🇯🇴 Jordania +962</option><option value="+7">🇰🇿 Kazajistán +7</option><option value="+254">🇰🇪 Kenia +254</option><option value="+996">🇰🇬 Kirguistán +996</option><option value="+965">🇰🇼 Kuwait +965</option><option value="+856">🇱🇦 Laos +856</option><option value="+266">🇱🇸 Lesoto +266</option><option value="+371">🇱🇻 Letonia +371</option><option value="+961">🇱🇧 Líbano +961</option><option value="+231">🇱🇷 Liberia +231</option><option value="+218">🇱🇾 Libia +218</option><option value="+423">🇱🇮 Liechtenstein +423</option><option value="+370">🇱🇹 Lituania +370</option><option value="+352">🇱🇺 Luxemburgo +352</option><option value="+853">🇲🇴 Macao +853</option><option value="+389">🇲🇰 Macedonia del Norte +389</option><option value="+261">🇲🇬 Madagascar +261</option><option value="+60">🇲🇾 Malasia +60</option><option value="+265">🇲🇼 Malaui +265</option><option value="+960">🇲🇻 Maldivas +960</option><option value="+223">🇲🇱 Malí +223</option><option value="+356">🇲🇹 Malta +356</option><option value="+212">🇲🇦 Marruecos +212</option><option value="+596">🇲🇶 Martinica +596</option><option value="+230">🇲🇺 Mauricio +230</option><option value="+222">🇲🇷 Mauritania +222</option><option value="+52">🇲🇽 México +52</option><option value="+373">🇲🇩 Moldavia +373</option><option value="+377">🇲🇨 Mónaco +377</option><option value="+976">🇲🇳 Mongolia +976</option><option value="+382">🇲🇪 Montenegro +382</option><option value="+258">🇲🇿 Mozambique +258</option><option value="+95">🇲🇲 Myanmar +95</option><option value="+264">🇳🇦 Namibia +264</option><option value="+977">🇳🇵 Nepal +977</option><option value="+505">🇳🇮 Nicaragua +505</option><option value="+227">🇳🇪 Níger +227</option><option value="+234">🇳🇬 Nigeria +234</option><option value="+47">🇳🇴 Noruega +47</option><option value="+687">🇳🇨 Nueva Caledonia +687</option><option value="+64">🇳🇿 Nueva Zelanda +64</option><option value="+968">🇴🇲 Omán +968</option><option value="+31">🇳🇱 Países Bajos +31</option><option value="+92">🇵🇰 Pakistán +92</option><option value="+970">🇵🇸 Palestina +970</option><option value="+507">🇵🇦 Panamá +507</option><option value="+675">🇵🇬 Papúa Nueva Guinea +675</option><option value="+595">🇵🇾 Paraguay +595</option><option value="+689">🇵🇫 Polinesia Francesa +689</option><option value="+48">🇵🇱 Polonia +48</option><option value="+351">🇵🇹 Portugal +351</option><option value="+1">🇵🇷 Puerto Rico +1</option><option value="+44">🇬🇧 Reino Unido +44</option><option value="+236">🇨🇫 República Centroafricana +236</option><option value="+420">🇨🇿 República Checa +420</option><option value="+1">🇩🇴 República Dominicana +1</option><option value="+262">🇷🇪 Reunión +262</option><option value="+250">🇷🇼 Ruanda +250</option><option value="+40">🇷🇴 Rumania +40</option><option value="+7">🇷🇺 Rusia +7</option><option value="+685">🇼🇸 Samoa +685</option><option value="+1">🇰🇳 San Cristóbal y Nieves +1</option><option value="+378">🇸🇲 San Marino +378</option><option value="+1">🇻🇨 San Vicente y las Granadinas +1</option><option value="+1">🇱🇨 Santa Lucía +1</option><option value="+239">🇸🇹 Santo Tomé y Príncipe +239</option><option value="+221">🇸🇳 Senegal +221</option><option value="+381">🇷🇸 Serbia +381</option><option value="+248">🇸🇨 Seychelles +248</option><option value="+232">🇸🇱 Sierra Leona +232</option><option value="+65">🇸🇬 Singapur +65</option><option value="+963">🇸🇾 Siria +963</option><option value="+252">🇸🇴 Somalia +252</option><option value="+94">🇱🇰 Sri Lanka +94</option><option value="+27">🇿🇦 Sudáfrica +27</option><option value="+249">🇸🇩 Sudán +249</option><option value="+211">🇸🇸 Sudán del Sur +211</option><option value="+46">🇸🇪 Suecia +46</option><option value="+41">🇨🇭 Suiza +41</option><option value="+597">🇸🇷 Surinam +597</option><option value="+66">🇹🇭 Tailandia +66</option><option value="+886">🇹🇼 Taiwán +886</option><option value="+255">🇹🇿 Tanzania +255</option><option value="+992">🇹🇯 Tayikistán +992</option><option value="+670">🇹🇱 Timor Oriental +670</option><option value="+228">🇹🇬 Togo +228</option><option value="+676">🇹🇴 Tonga +676</option><option value="+1">🇹🇹 Trinidad y Tobago +1</option><option value="+216">🇹🇳 Túnez +216</option><option value="+993">🇹🇲 Turkmenistán +993</option><option value="+90">🇹🇷 Turquía +90</option><option value="+380">🇺🇦 Ucrania +380</option><option value="+256">🇺🇬 Uganda +256</option><option value="+598">🇺🇾 Uruguay +598</option><option value="+998">🇺🇿 Uzbekistán +998</option><option value="+678">🇻🇺 Vanuatu +678</option><option value="+58">🇻🇪 Venezuela +58</option><option value="+84">🇻🇳 Vietnam +84</option><option value="+967">🇾🇪 Yemen +967</option><option value="+253">🇩🇯 Yibuti +253</option><option value="+260">🇿🇲 Zambia +260</option><option value="+263">🇿🇼 Zimbabue +263</option></select><input id="f-wa" name="wa" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="999 999 999"></span></label>
+      <label for="f-ig">Instagram o TikTok<input id="f-ig" name="ig" placeholder="@tuusuario" autocapitalize="off"></label>
+      <label for="f-job">¿A qué te dedicas?<input id="f-job" name="job" placeholder="Ej.: abogada, creador, inmobiliaria"></label>
+      <label for="f-size">Seguidores
+        <select id="f-size" name="size"><option value="">Elige uno</option><option>Menos de 10 mil</option><option>10 a 100 mil</option><option>100 mil a 1 millón</option><option>Más de 1 millón</option></select></label>
+      <button class="btn" type="submit">ENVIAR SOLICITUD</button>
+      <small id="err" role="alert"></small>
+      </div>
+      <div class="done" id="done" hidden>
+        <b>¡Envío procesado! ✓</b>
+      </div>
+  </form>
+</dialog>
+
+<dialog id="lb" aria-label="Foto"><button class="x" type="button" id="lb-x" aria-label="Cerrar">✕</button><img id="lb-img" alt=""><p id="lb-cap"></p></dialog>
+
+<script>
+(()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;document.querySelectorAll('.stats b').forEach(b=>{const t=b.textContent,m=t.match(/([\d.]+)/);if(!m)return;const n=parseFloat(m[1]),dec=(m[1].split('.')[1]||'').length,st=performance.now(),d=1300;const f=x=>{const k=Math.min(1,(x-st)/d),v=n*(1-Math.pow(1-k,3));b.textContent=t.replace(m[1],v.toFixed(dec));if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)})})();
+(()=>{const reel=document.querySelector(".reel"),track=reel&&reel.querySelector(".track");if(!reel||!track)return;
+reel.setAttribute("role","region");reel.setAttribute("aria-label","Galería de campañas de King León");reel.tabIndex=0;
+const seen=new Set();[...track.querySelectorAll(".tile")].forEach(tile=>{const label=tile.getAttribute("aria-label");if(seen.has(label)){tile.remove();return}seen.add(label)});
+let pointer=null,suppressClick=false;
+reel.addEventListener("keydown",e=>{if(e.key==="ArrowLeft"||e.key==="ArrowRight"){e.preventDefault();reel.scrollBy({left:e.key==="ArrowLeft"?-180:180,behavior:"smooth"})}});
+reel.addEventListener("pointerdown",e=>{if(!e.isPrimary||e.pointerType!=="mouse"||e.button!==0)return;pointer={id:e.pointerId,x:e.clientX,scrollLeft:reel.scrollLeft,moved:false}});
+window.addEventListener("pointermove",e=>{if(!pointer||e.pointerId!==pointer.id)return;const dx=e.clientX-pointer.x;if(Math.abs(dx)>4&&!pointer.moved){pointer.moved=true;reel.classList.add("is-dragging")}if(pointer.moved){e.preventDefault();reel.scrollLeft=pointer.scrollLeft-dx}});
+const finishDrag=e=>{if(!pointer||e.pointerId!==pointer.id)return;if(pointer.moved){suppressClick=true;setTimeout(()=>{suppressClick=false},100)}pointer=null;reel.classList.remove("is-dragging")};
+window.addEventListener("pointerup",finishDrag);window.addEventListener("pointercancel",finishDrag);
+reel.addEventListener("click",e=>{if(suppressClick){e.preventDefault();e.stopImmediatePropagation();suppressClick=false}},true);
+track.querySelectorAll(".tile").forEach(tile=>tile.addEventListener("click",()=>{const lb=document.getElementById("lb");const u=getComputedStyle(tile).backgroundImage.slice(5,-2);document.getElementById("lb-img").src=u;document.getElementById("lb-cap").textContent=tile.textContent.trim();try{lb.showModal()}catch(_){lb.setAttribute("open","")}}));
+})();
+document.getElementById("lb-x").onclick=()=>document.getElementById("lb").close();
+document.getElementById("lb").addEventListener("click",e=>{if(e.target.id==="lb")e.target.close()});
+const sticky=document.querySelector(".sticky");
+const updateStickyVisibility=()=>sticky.classList.toggle("in",window.innerHeight>700||window.scrollY>160);
+window.addEventListener("scroll",updateStickyVisibility,{passive:true});
+window.addEventListener("resize",updateStickyVisibility);
+setTimeout(updateStickyVisibility,700);
+/* URL de la implementación de prueba de Apps Script; se configura después de desplegarla. */
+const SCRIPT_URL="";
+const WA="51976960262";
+const dlg=document.getElementById("sheet"),f=document.getElementById("lead"),err=document.getElementById("err");
+const submitFrame=document.getElementById("lead-submit-frame"),submitButton=f.querySelector('[type="submit"]');
+let requestId="",requestTimer=null,sending=false;
+const open=()=>{try{dlg.showModal()}catch(_){dlg.setAttribute("open","")}setTimeout(()=>document.getElementById("f-name").focus(),50)};
+document.querySelectorAll(".open").forEach(b=>b.addEventListener("click",open));
+document.getElementById("close").onclick=()=>dlg.close();
+dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
+const finishSubmit=(success,id)=>{
+  if(!sending||id!==requestId)return;
+  clearTimeout(requestTimer);sending=false;submitButton.disabled=false;submitButton.textContent="ENVIAR SOLICITUD";
+  if(success){
+    document.getElementById("fields").hidden=true;document.getElementById("done").hidden=false;
+    return;
+  }
+  err.textContent="No se pudo completar el envío. Tus datos siguen aquí; revisa tu conexión e inténtalo de nuevo.";
+};
+window.addEventListener("message",event=>{
+  if(!event.data||event.data.type!=="studio30-lead-result")return;
+  if(event.data.requestId!==requestId)return;
+  finishSubmit(event.data.status==="success",event.data.requestId);
+});
+f.addEventListener("submit",e=>{
+  e.preventDefault();
+  const d=Object.fromEntries(new FormData(f));
+  const okMail=/^\S+@\S+\.\S+$/.test(d.email||"");
+  if(!String(d.name||"").trim()||!String(d.wa||"").trim()||!String(d.ig||"").trim()||!d.job||!d.size){err.textContent="Completa todos los datos.";return}
+  if(!okMail){err.textContent="Escribe un correo válido de contacto.";return}
+  if(!SCRIPT_URL){err.textContent="El envío todavía no está configurado. No se enviaron tus datos.";return}
+  if(sending)return;
+  err.textContent="";
+  sending=true;submitButton.disabled=true;submitButton.textContent="ENVIANDO…";
+  if(!requestId)requestId=window.crypto&&crypto.randomUUID?crypto.randomUUID():"lead-"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2);
+  let idInput=f.querySelector('[name="requestId"]');
+  if(!idInput){idInput=document.createElement("input");idInput.type="hidden";idInput.name="requestId";f.appendChild(idInput)}
+  idInput.value=requestId;
+  f.method="post";f.action=SCRIPT_URL;f.target=submitFrame.name;
+  try{
+    f.submit();
+    requestTimer=setTimeout(()=>finishSubmit(false,requestId),30000);
+  }catch(_){
+    finishSubmit(false,requestId);
+  }
+});
+</script>
+
+</body>
+</html>
